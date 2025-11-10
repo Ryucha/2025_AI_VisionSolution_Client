@@ -68,9 +68,9 @@ ApplicationWindow {
                             Layout.fillWidth: true
                             Layout.fillHeight: true
 
-                            Rectangle {
-                                anchors.fill: parent
-                                color: "green"
+                            ToggleBox {
+                                width: parent.width
+                                height: parent.height
                             }
                         }
                     }   
@@ -96,10 +96,10 @@ ApplicationWindow {
                 Item {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
-
-                    Rectangle {
-                        anchors.fill: parent
-                        color: "cyan"
+                    
+                    RightDown {
+                        width: parent.width
+                        height: parent.height
                     }
                 }
             }

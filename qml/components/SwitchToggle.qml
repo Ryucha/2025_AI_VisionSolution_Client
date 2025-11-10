@@ -5,6 +5,8 @@ import QtQuick.Layouts 1.15
 
 Rectangle {
     property string text: "Switch"
+    height: 60
+    color: "transparent"
     
     RowLayout {
         anchors.fill: parent

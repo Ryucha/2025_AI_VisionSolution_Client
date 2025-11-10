@@ -8,5 +8,8 @@
         <file>../qml/components/DefaultButton.qml</file>
         <file>../qml/components/SwitchToggle.qml</file>
         <file>../qml/RightUp.qml</file>
+        <file>../qml/ToggleBox.qml</file>
+        <file>../qml/components/ListItem.qml</file>
+        <file>../qml/RightDown.qml</file>
     </qresource>
 </RCC>
