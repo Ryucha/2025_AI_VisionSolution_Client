@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>../qml/Main.qml</file>
+        <file>../qml/components/Colors.qml</file>
+        <file>../qml/components/qmldir</file>
+        <file>../qml/components/Camera.qml</file>
+        <file>../qml/components/Chart.qml</file>
+        <file>../qml/components/DefaultButton.qml</file>
+        <file>../qml/components/SwitchToggle.qml</file>
+        <file>../qml/RightUp.qml</file>
+    </qresource>
+</RCC>

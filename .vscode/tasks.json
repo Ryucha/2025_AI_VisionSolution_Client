@@ -1,0 +1,38 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "resource compile",
+            "type": "process",
+            "command": "${workspaceFolder}/.venv/Scripts/pyside6-rcc${command:python.interpreterPath}",
+            "windows": {
+                "command": "${workspaceFolder}\\.venv\\Scripts\\pyside6-rcc.exe",
+                "args": [
+                    "${workspaceFolder}\\resources\\resources.qrc",
+                    "-o",
+                    "${workspaceFolder}\\resources_rc.py"
+                ]
+            },
+            "linux": {
+                "command": "${workspaceFolder}/.venv/bin/pyside6-rcc",
+                "args": [
+                    "${workspaceFolder}/resources/resources.qrc",
+                    "-o",
+                    "${workspaceFolder}/resources_rc.py"
+                ]
+            },
+            "osx": {
+                "command": "${workspaceFolder}/.venv/bin/pyside6-rcc",
+                "args": [
+                    "${workspaceFolder}/resources/resources.qrc",
+                    "-o",
+                    "${workspaceFolder}/resources_rc.py"
+                ]
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        }
+    ]
+}
