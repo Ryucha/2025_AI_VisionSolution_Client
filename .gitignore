@@ -1,2 +1,5 @@
 /.venv/
 resources_rc.py
+*.pkl
+__pycache__/
+*.pyc

@@ -4,11 +4,13 @@ import QtQuick.Layouts 1.15
 
 Rectangle {
     anchors.fill: parent
-    color: "blue"
-
-    Text {
-        text: "Camera Component"
-        anchors.centerIn: parent
-        color: "white"
+    color: "black"
+    
+    Image {
+        anchors.fill: parent
+        source: cameraVM.previewImage
+        cache: false
     }
+
+    
 }

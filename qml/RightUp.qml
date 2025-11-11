@@ -6,6 +6,13 @@ import "components"
 Rectangle {
     color: "transparent"
 
+    AIDialog {
+        id: aiDialog
+        onAccepted: {
+            aiVM.loadAIModel(aiDialog.selectedFile)
+        }
+    }
+
     ColumnLayout {
         width: parent.width
         spacing: 10
@@ -40,7 +47,7 @@ Rectangle {
             Layout.leftMargin: 16
             Layout.rightMargin: 16
             Text {
-                text: "모델 : YOLOv8n"
+                text: "모델 : " + aiVM.selectedFile
                 font.pixelSize: 24
                 color: Colors.text_white
                 font.weight: Font.Bold
@@ -62,12 +69,16 @@ Rectangle {
                     Layout.fillWidth: true
                     Layout.preferredHeight: 80
                     text: "모델 선택"
+                    onClicked: {
+                        aiDialog.open()
+                    }
                 }
 
                 DefaultButton {
                     Layout.fillWidth: true
                     Layout.preferredHeight: 80
                     text: "모델 저장"
+                    onClicked: aiVM.clickAIModelSave()
                 }
             }
         }

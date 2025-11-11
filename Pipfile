@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 pyside6 = "*"
+iai-gxipy = "*"
+black = "*"
 
 [dev-packages]
 
