@@ -4,7 +4,10 @@ import QtQuick.Layouts 1.15
 
 
 Rectangle {
+    id: root
     property string text: "Switch"
+    property bool checked: false
+    signal toggled(bool checked)
     height: 60
     color: "transparent"
     
@@ -15,7 +18,7 @@ Rectangle {
         Text {
             Layout.leftMargin: 16
             Layout.fillWidth: true
-            text: parent.parent.text
+            text: root.text
             color: Colors.text_white
             font.pointSize: 24
             verticalAlignment: Text.AlignVCenter
@@ -24,7 +27,8 @@ Rectangle {
         Switch {
             Layout.rightMargin: 16
             id: toggleSwitch
-            checked: false
+            checked: root.checked
+            onCheckedChanged: root.toggled(checked)
         }
     }
 }

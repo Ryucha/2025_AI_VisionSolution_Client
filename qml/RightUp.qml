@@ -13,6 +13,13 @@ Rectangle {
         }
     }
 
+    AIDialog {
+        id: aiTypeDialog
+        onAccepted: {
+            aiVM.loadAITypeModel(aiTypeDialog.selectedFile)
+        }
+    }
+
     ColumnLayout {
         width: parent.width
         spacing: 10
@@ -59,6 +66,19 @@ Rectangle {
             Layout.preferredHeight: childrenRect.height            
             Layout.leftMargin: 16
             Layout.rightMargin: 16
+            Text {
+                text: "분석 유형 모델 : " + aiVM.selectedAITypeFile
+                font.pixelSize: 24
+                color: Colors.text_white
+                font.weight: Font.Bold
+            }
+        }
+
+        Item {
+            Layout.fillWidth: true
+            Layout.preferredHeight: childrenRect.height            
+            Layout.leftMargin: 16
+            Layout.rightMargin: 16
             Layout.topMargin: 10
             Layout.bottomMargin: 10
             RowLayout {
@@ -68,7 +88,7 @@ Rectangle {
                 DefaultButton {
                     Layout.fillWidth: true
                     Layout.preferredHeight: 80
-                    text: "모델 선택"
+                    text: "객체 모델 선택"
                     onClicked: {
                         aiDialog.open()
                     }
@@ -77,8 +97,8 @@ Rectangle {
                 DefaultButton {
                     Layout.fillWidth: true
                     Layout.preferredHeight: 80
-                    text: "모델 저장"
-                    onClicked: aiVM.clickAIModelSave()
+                    text: "분석 모델 선택"
+                    onClicked: aiTypeDialog.open()
                 }
             }
         }

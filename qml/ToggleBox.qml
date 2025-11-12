@@ -41,6 +41,20 @@ Rectangle {
 
         Item {
             Layout.fillWidth: true
+            Layout.preferredHeight: childrenRect.height
+
+            SwitchToggle {
+                width: parent.width
+                text: "실시간"
+                checked: cameraVM.isLive
+                onToggled: cameraVM.live_toogle_changed(checked)
+                
+
+            }
+        }
+
+        Item {
+            Layout.fillWidth: true
             Layout.fillHeight: true
         }
 

@@ -7,7 +7,7 @@ ApplicationWindow {
     visible: true
     width: 1280
     height: 1024
-    title: qsTr("")
+    title: qsTr("AI 비전 솔루션")
 
     Rectangle {
         anchors.fill: parent

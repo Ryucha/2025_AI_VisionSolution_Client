@@ -16,11 +16,17 @@ class AIViewModel(QObject):
     @Property(str, notify=selectedFileChanged)
     def selectedFile(self):
         return self._service.get_selected_file_path()
-
-    @Slot()
-    def clickAIModelSave(self):
-        self._service.save_ai_model()
+    
+    @Property(str, notify=selectedFileChanged)
+    def selectedAITypeFile(self):
+        return self._service.get_selected_ai_type_file_path()
 
     @Slot(str)
     def loadAIModel(self, file_url: str):
-        self._service.set_selected_file_path(file_url)
+        self._service.set_selected_ai_file_path(file_url)
+        self._service.save_ai_model()
+        
+    @Slot(str)
+    def loadAITypeModel(self, file_url: str):
+        self._service.set_selected_ai_type_file_path(file_url)
+        self._service.save_ai_model()
