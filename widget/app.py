@@ -3,12 +3,13 @@ from pathlib import Path
 
 from PySide6.QtCore import QUrl
 from PySide6.QtGui import QGuiApplication
-from PySide6.QtQml import QQmlApplicationEngine
+from PySide6.QtQml import QQmlApplicationEngine, qmlRegisterType
 
-from viewModel import CameraViewModel, AIViewModel
+from viewModel import *
 from provider.cameraImageProvider import CameraImageProvider
-from service import AIService, CameraService
-from repository import AIPathRepository
+from provider.rectPainter import RectPainter
+from service import *
+from repository import *
 import resources_rc
 
 
@@ -17,6 +18,9 @@ class App:
         self.qt_app = QGuiApplication(sys.argv)
         self.engine = QQmlApplicationEngine()
         
+        ##Register Components
+        qmlRegisterType(RectPainter, "widgets", 1, 0, "RectPainter")
+
         ##Repository
         self.ai_path_repository = AIPathRepository()
 
@@ -26,12 +30,17 @@ class App:
         ## Services
         self.ai_service = AIService(ai_path_repository=self.ai_path_repository)
         self.camera_service = CameraService()
+        self.file_image_service = FileImageService()
 
         ## ViewModels
-        self.ai_view_model = AIViewModel(service=self.ai_service)
+        self.ai_view_model = AIViewModel(
+            service=self.ai_service, camera_image_provider=self.camera_image_provider
+        )
 
         self.camera_view_model = CameraViewModel(
-            provider=self.camera_image_provider, service=self.camera_service
+            provider=self.camera_image_provider,
+            camera_service=self.camera_service,
+            file_image_service=self.file_image_service,
         )
 
         self.engine.addImageProvider("camera", self.camera_image_provider)

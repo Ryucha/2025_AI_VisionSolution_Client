@@ -7,7 +7,6 @@ from utils.camera import Camera
 class CameraService(QObject):
     previewUpdatedSignal = Signal(object)
     isLiveChanged = Signal()
-    
 
     def __init__(self):
         super().__init__()
@@ -18,7 +17,7 @@ class CameraService(QObject):
         self.preview_timer = QTimer(self)
         self.preview_timer.timeout.connect(self.emit_preview_update)
         self.preview_timer.start(33)
-        
+
         self.set_is_live(True)
 
     @Slot(object)
@@ -35,18 +34,16 @@ class CameraService(QObject):
             )
 
             self.previewUpdatedSignal.emit(q_image)
-            
+
     def get_is_live(self) -> bool:
         return self.is_live
-    
+
     def set_is_live(self, live: bool):
         self.is_live = live
-        
+
         if self.is_live:
             Camera().startStream()
         else:
             Camera().stopStream()
-            
+
         self.isLiveChanged.emit()
-        
-    

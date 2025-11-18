@@ -48,8 +48,20 @@ Rectangle {
                 text: "실시간"
                 checked: cameraVM.isLive
                 onToggled: cameraVM.live_toogle_changed(checked)
-                
+            }
+        }
 
+        Item {
+            Layout.fillWidth: true
+            Layout.preferredHeight: childrenRect.height
+
+            DefaultButton {
+                visible: cameraVM.isLive === false
+                width: parent.width
+                text: "검사 하기"
+                onClicked: {
+                    aiVM.detect_object()
+                }
             }
         }
 

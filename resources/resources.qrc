@@ -12,5 +12,6 @@
         <file>../qml/components/ListItem.qml</file>
         <file>../qml/RightDown.qml</file>
         <file>../qml/components/AIDialog.qml</file>
+        <file>../qml/components/ImageDialog.qml</file>
     </qresource>
 </RCC>

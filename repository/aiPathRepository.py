@@ -10,11 +10,8 @@ class AIPathRepository:
     def save_model_path(self, ai_path: str, ai_type_path: str):
         self.model_path = ai_path
         self.type_model_path = ai_type_path
-        
-        data = {
-            "model_path": self.model_path,
-            "type_model_path": self.type_model_path
-        }
+
+        data = {"model_path": self.model_path, "type_model_path": self.type_model_path}
         with open(self.file_path, "wb") as f:
             pickle.dump(data, f)
 

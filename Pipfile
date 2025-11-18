@@ -7,6 +7,7 @@ name = "pypi"
 pyside6 = "*"
 iai-gxipy = "*"
 black = "*"
+ultralytics = "*"
 
 [dev-packages]
 
